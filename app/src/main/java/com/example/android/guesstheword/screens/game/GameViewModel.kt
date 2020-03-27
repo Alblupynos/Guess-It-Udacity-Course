@@ -47,12 +47,10 @@ class GameViewModel : ViewModel() {
         timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND) {
 
             override fun onTick(millisUntilFinished: Long) {
-                // TODO implement what should happen each tick of the timer
                 _currentTime.value = millisUntilFinished
             }
 
             override fun onFinish() {
-                // TODO implement what should happen when the timer finishes
                 _eventGameFinished.value = true
             }
         }
