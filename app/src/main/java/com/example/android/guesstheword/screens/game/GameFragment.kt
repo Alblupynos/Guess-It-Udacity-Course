@@ -53,9 +53,8 @@ class GameFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
 
         binding.gameViewModel = viewModel
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
-        viewModel.currentTime.observe(this, Observer { newTime -> binding.timerText.text = newTime.toString() })
         viewModel.eventGameFinished.observe(this, Observer { hasFinished ->
             if (hasFinished){
                 gameFinished()
